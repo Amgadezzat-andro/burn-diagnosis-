@@ -17,6 +17,7 @@ class Auth with ChangeNotifier {
   Timer _authTimer;
 
 // return true if token != null
+    
   bool get isAuth {
     return token != null;
   }

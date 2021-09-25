@@ -2,12 +2,14 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:login_ui_design/providers/auth.dart';
 import 'package:login_ui_design/screens/login_screen.dart';
+import 'package:login_ui_design/screens/signup_screen.dart';
 import 'package:login_ui_design/screens/treatment.dart';
 import 'package:login_ui_design/widgets/app_drawer.dart';
 import 'package:provider/provider.dart';
 import 'homeremedias.dart';
 import '../widgets/image_picker.dart';
 import 'login_screen.dart';
+import 'dart:developer' as dev;
 
 String res = "Aim Of Application";
 String res_2 = "text";
@@ -18,38 +20,40 @@ class Home extends StatefulWidget {
 }
 
 class _home extends State<Home> {
+ 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: Consumer<Auth>(
-          builder: (ctx, auth, _) {
-            return auth.isAuth
-                ? HomePage()
-                : FutureBuilder(
-                    future: auth.tryAutoLogin(),
-                    builder: (ctx, AsyncSnapshot authSnapShot) =>
-                        authSnapShot.connectionState == ConnectionState.waiting
-                            ? Center(
-                                child: CircularProgressIndicator(),
-                              )
-                            : LoginScreen(),
-                  );
-          },
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider.value(value: Auth()),
+      ],
+      child: Scaffold(
+        body: SafeArea(
+          child: Consumer<Auth>(
+            builder: (ctx, auth, _) {
+              //dev.debugger();
+              return auth.isAuth
+                  ? homepage(ctx)
+                  : FutureBuilder(
+                      future: auth.tryAutoLogin(),
+                      builder: (ctx, AsyncSnapshot authSnapShot) =>
+                          authSnapShot.connectionState ==
+                                  ConnectionState.waiting
+                              ? Center(
+                                  child: CircularProgressIndicator(),
+                                )
+                              : LoginScreen(),
+                    );
+            },
+          ),
         ),
       ),
     );
   }
 }
 
-class HomePage extends StatelessWidget {
-  const HomePage({
-    Key key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
+Scaffold homepage(context){
+  return Scaffold(
       appBar: AppBar(),
       drawer: AppDrawer(),
       body: Center(
@@ -161,5 +165,4 @@ class HomePage extends StatelessWidget {
         ),
       ),
     );
-  }
 }
