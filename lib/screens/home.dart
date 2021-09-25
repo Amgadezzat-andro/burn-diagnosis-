@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:login_ui_design/providers/auth.dart';
 import 'package:login_ui_design/screens/login_screen.dart';
-import 'package:login_ui_design/screens/splash_screen.dart';
 import 'package:login_ui_design/screens/treatment.dart';
 import 'package:login_ui_design/widgets/app_drawer.dart';
 import 'package:provider/provider.dart';
