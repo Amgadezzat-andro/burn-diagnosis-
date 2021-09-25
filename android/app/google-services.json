@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "587583520967",
+    "project_id": "burndiagnoses",
+    "storage_bucket": "burndiagnoses.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:587583520967:android:1178e4b0ba165c29403ee2",
+        "android_client_info": {
+          "package_name": "com.example.burn_diagnosiss"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "587583520967-ntik3bk706krbn1keknlebcvliti974i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBZprfpu6PV6Ol2G9R9AObY2rWtkI944uo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "587583520967-ntik3bk706krbn1keknlebcvliti974i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
